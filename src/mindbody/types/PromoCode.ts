@@ -1,4 +1,4 @@
-import type { ApplicableItem } from '$mindbody/types';
+import type { ApplicableItem } from './mindbody/types';
 
 export type PromoCodes = {
   PromoCodes: PromoCode[];

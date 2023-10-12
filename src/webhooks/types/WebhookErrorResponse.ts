@@ -1,4 +1,4 @@
-import type { WebhookErrorCode } from './WebhookErrorCode';
+import type { WebhookErrorCode } from './WebhookErrorCode.ts';
 
 export type WebhookErrorResponse = {
   errors: {

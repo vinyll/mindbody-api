@@ -1,14 +1,8 @@
-import type {
-  PaginatedResponse,
-  RequestArgsDelete,
-  RequestArgsGet,
-  RequestArgsGetOptionalParams,
-  RequestArgsPost,
-} from '$http/types';
-import type { Kv } from '$http/types/Kv';
-
-import { BaseClient } from '$http/BaseClient';
-import { autoPager } from '$http/autoPager';
+import {BaseClient} from "./BaseClient.ts"
+import {Kv} from "./types/Kv.ts"
+import {RequestArgsDelete, RequestArgsGet, RequestArgsGetOptionalParams, RequestArgsPost} from "./types/RequestArgs.ts"
+import {PaginatedResponse} from "./types/PaginatedResponse.ts"
+import {autoPager} from "./autoPager.ts"
 
 export type Returnable = Kv | (string | number)[];
 

@@ -1,4 +1,4 @@
-import type { Appointment, Class, Enrollment } from '$mindbody/types';
+import type { Appointment, Class, Enrollment } from './mindbody/types';
 
 export type ShoppingCart = {
   ShoppingCart: {

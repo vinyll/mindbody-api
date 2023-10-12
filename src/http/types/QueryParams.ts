@@ -1,4 +1,4 @@
-import type { Kv } from '$http/types/Kv';
+import type { Kv } from './http/types/Kv';
 
 export type QueryParams<TParams extends Kv> = {
   Limit?: number;

@@ -1,4 +1,4 @@
-import type { Location, Program, Staff } from '$mindbody/types';
+import type { Location, Program, Staff } from './mindbody/types';
 
 export type Courses = {
   Courses: Course[];

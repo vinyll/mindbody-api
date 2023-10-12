@@ -1,16 +1,11 @@
-import type {
-  PaginatedResponse,
-  QueryParams,
-  RequestArgsGetOptionalParams,
-} from '$http/types';
-import type {
-  Commissions,
-  ScheduledServiceEarnings,
-  Timecards,
-  Tips,
-} from '$mindbody/types';
-
-import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
+import {MindbodyAPIClient} from "../http/MindbodyAPIClient.ts"
+import {QueryParams} from "../http/types/QueryParams.ts"
+import {RequestArgsGetOptionalParams} from "../http/types/RequestArgs.ts"
+import {PaginatedResponse} from "../http/types/PaginatedResponse.ts"
+import {Commissions} from "./types/Commissions.ts"
+import {ScheduledServiceEarnings} from "./types/ScheduledServiceEarnings.ts"
+import {Timecards} from "./types/Timecards.ts"
+import {Tips} from "./types/Tips.ts"
 
 const MINDBODY = MindbodyAPIClient.get();
 

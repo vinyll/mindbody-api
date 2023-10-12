@@ -4,7 +4,7 @@ import type {
   ClientMembership,
   ClientService,
   Contract,
-} from '$mindbody/types';
+} from './mindbody/types';
 
 export type ClientCompleteInfo = {
   Client: Client;

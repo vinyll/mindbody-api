@@ -1,5 +1,5 @@
-import type { PurchasedItem, SalePayment } from '$mindbody/types';
-import type { Nullable } from '$types';
+import type { PurchasedItem, SalePayment } from './mindbody/types';
+import type { Nullable } from './types';
 
 export type Sales = {
   Sales: Sale[];

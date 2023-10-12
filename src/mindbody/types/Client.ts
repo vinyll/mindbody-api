@@ -6,8 +6,8 @@ import type {
   MobileProvider,
   ProspectStage,
   SalesRep,
-} from '$mindbody/types';
-import type { Nullable } from '$types';
+} from './mindbody/types';
+import type { Nullable } from './types';
 
 export type Clients = {
   Clients: Client[];

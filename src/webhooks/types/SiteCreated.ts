@@ -1,4 +1,4 @@
-import type { WebhookEventBase } from '$webhooks/types';
+import type { WebhookEventBase } from './webhooks/types';
 
 export type SiteCreated = WebhookEventBase<{
   siteId: number;

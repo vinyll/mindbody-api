@@ -1,15 +1,7 @@
-import type {
-  WebhooksRequestsArgsPatch,
-  WebhooksRequestsArgsPost,
-} from '$http/types';
-import type {
-  DeactivatedSubscription,
-  EventType,
-  Subscription,
-  Subscriptions,
-} from '$webhooks/types';
-
-import { MindbodyWebhooksClient } from '$http/MindbodyWebhooksClient';
+import {MindbodyWebhooksClient} from "../http/MindbodyWebhooksClient.ts"
+import {DeactivatedSubscription, Subscription, Subscriptions} from "./types/Subscription.ts"
+import {EventType} from "./types/EventType.ts"
+import {WebhooksRequestsArgsPatch, WebhooksRequestsArgsPost} from "../http/types/RequestArgs.ts"
 
 const MINDBODY = MindbodyWebhooksClient.get();
 
@@ -28,7 +20,7 @@ async function getSubscriptions(): Promise<Subscriptions> {
  * https://developers.mindbodyonline.com/WebhooksDocumentation#get-subscription-by-id
  */
 async function getSubscription(subscriptionID: string): Promise<Subscription> {
-  return await MINDBODY.get(`/subscriptions/${subscriptionID}`);
+  return await MINDBODY.get(`/subscriptions/./{subscriptionID}`);
 }
 
 export type CreateSubscriptionPayload = {
@@ -71,7 +63,7 @@ async function updateSubscription(
   subscriptionID: string,
   args: WebhooksRequestsArgsPatch<UpdateSubscriptionPayload>,
 ): Promise<Subscription> {
-  return await MINDBODY.patch(`/subscriptions/${subscriptionID}`, args);
+  return await MINDBODY.patch(`/subscriptions/./{subscriptionID}`, args);
 }
 
 /**
@@ -82,7 +74,7 @@ async function updateSubscription(
 async function deleteSubscription(
   subscriptionID: string,
 ): Promise<DeactivatedSubscription> {
-  return await MINDBODY.delete(`/subscriptions/${subscriptionID}`);
+  return await MINDBODY.delete(`/subscriptions/./{subscriptionID}`);
 }
 
 export default {

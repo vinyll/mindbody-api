@@ -1,4 +1,4 @@
-import type { Client, Staff } from '$mindbody/types';
+import type { Client, Staff } from './mindbody/types';
 
 export type AddContactLog = {
   Id: number;

@@ -1,40 +1,27 @@
-import type {
-  PaginatedResponse,
-  QueryParams,
-  RequestArgsDelete,
-  RequestArgsGet,
-  RequestArgsGetOptionalParams,
-  RequestArgsPost,
-} from '$http/types';
-import type {
-  ActiveClientMemberships,
-  AddContactLog,
-  Client,
-  ClientCompleteInfo,
-  ClientContracts,
-  ClientDuplicates,
-  ClientIndexes,
-  Clients,
-  ClientsMemberships,
-  ClientPurchases,
-  ClientRewards,
-  ClientService,
-  ClientServices,
-  ClientVisits,
-  ContactLogs,
-  CrossRegionalClientAssociations,
-  CustomClientFields,
-  DirectDebitInfo,
-  FormulaNotes,
-  ReferralTypes,
-  RequiredClientFields,
-  UpdatedClientRewards,
-  UpdatedContactLog,
-  Visit,
-} from '$mindbody/types';
-import type { MarkRequired } from 'ts-essentials';
 
-import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
+import type { MarkRequired } from 'ts-essentials';
+import {MindbodyAPIClient} from "../http/MindbodyAPIClient.ts"
+import {QueryParams} from "../http/types/QueryParams.ts"
+import {RequestArgsGet, RequestArgsGetOptionalParams, RequestArgsPost} from "../http/types/RequestArgs.ts"
+import {PaginatedResponse} from "../http/types/PaginatedResponse.ts"
+import {ActiveClientMemberships, ClientsMemberships} from "./types/ClientMembership.ts"
+import {Clients} from "./types/Client.ts"
+import {ContactLogs} from "./types/ContactLog.ts"
+import {ClientContracts} from "./types/ClientContract.ts"
+import {DirectDebitInfo} from "./types/DirectDebitInfo.ts"
+import {ClientDuplicates} from "./types/ClientDuplicate.ts"
+import {FormulaNotes} from "./types/FormulaNote.ts"
+import {ClientIndexes} from "./types/ClientIndex.ts"
+import {ClientPurchases} from "./types/ClientPurchase.ts"
+import {ReferralTypes} from "./types/ReferralTypes.ts"
+import {ClientRewards} from "./types/ClientReward.ts"
+import {ClientCompleteInfo} from "./types/ClientCompleteInfo.ts"
+import {ClientServices} from "./types/ClientService.ts"
+import {ClientVisits} from "./types/ClientVisit.ts"
+import {CrossRegionalClientAssociations} from "./types/CrossRegionalClientAssociation.ts"
+import {CustomClientFields} from "./types/CustomClientField.ts"
+import {RequiredClientFields} from "./types/RequiredClientFields.ts"
+
 
 const MINDBODY = MindbodyAPIClient.get();
 

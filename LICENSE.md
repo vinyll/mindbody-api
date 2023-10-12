@@ -1,6 +1,7 @@
 MIT License
 
-Copyright (c) 2022 SplitPass
+Copyright for portions of project Foo are held by SplitPass, 2022 as part of project Mindbody-API-v6.
+All other copyright for project Foo are held by Vincent Agnano, 2023.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,4 +1,4 @@
-import type { Returnable } from '$http/MindbodyAPIClient';
+import type { Returnable } from './http/MindbodyAPIClient';
 
 export type PaginatedResponse<TResponse extends Returnable> = {
   PaginationResponse: {

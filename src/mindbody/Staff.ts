@@ -1,22 +1,12 @@
-import type {
-  PaginatedResponse,
-  QueryParams,
-  RequestArgsGet,
-  RequestArgsGetOptionalParams,
-  RequestArgsPost,
-} from '$http/types';
-import type {
-  AddStaffSessionType,
-  Permissions,
-  SalesReps,
-  Staff,
-  StaffImageURL,
-  StaffMembers,
-  StaffSessionTypes,
-} from '$mindbody/types';
-import type { MarkRequired } from 'ts-essentials';
-
-import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
+import {MindbodyAPIClient} from "../http/MindbodyAPIClient.ts"
+import {QueryParams} from "../http/types/QueryParams.ts"
+import {RequestArgsGet, RequestArgsGetOptionalParams} from "../http/types/RequestArgs.ts"
+import {PaginatedResponse} from "../http/types/PaginatedResponse.ts"
+import {Staff, StaffMembers} from "./types/Staff.ts"
+import {Permissions} from "./types/Permissions.ts"
+import {StaffImageURL} from "./types/StaffImageURL.ts"
+import {StaffSessionTypes} from "./types/SessionType.ts"
+import {SalesReps} from "./types/SalesRep.ts"
 
 const MINDBODY = MindbodyAPIClient.get();
 

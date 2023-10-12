@@ -1,12 +1,20 @@
 <div>
     <h1>Mindbody API</h1>
     <p><b>Type safe library for interacting with Mindbody's Public API (v6) and Webhooks</b></p>
-    <img src="https://img.shields.io/github/package-json/v/splitpass/mindbody-api?color=blue&style=for-the-badge" alt="Latest version of splitpass/mindbody-api is 0.2.3">
+    <img src="https://img.shields.io/github/package-json/v/vinyll/mindbody-api?color=blue&style=for-the-badge" alt="Latest version of mindbody-api is 0.3.0">
 </div>
 <br />
 
 > :warning: **Read before installing**\
-> This library is typed according to the definitions available in Minbody's [API docs](https://developers.mindbodyonline.com/PublicDocumentation/V6#endpoints). Their API fails to establish consistent patterns and field type definitons. An `ID` may be typed as a `string` or `number` and commonly swaps to a different type depending on the endpoint. Schema definitions are sometimes incomplete or completely wrong. Schema fields and endpoint paramters are only sometimes marked as nullable / optional. **Please keep all this in mind when using this library. SplitPass uses this library internally (heavily) and we will correct / expand type definitions as we run accross issues. BUT, we do not interact with 100% of Mindbody's API. Please submit an issue or PR if you find an issue or would like to expand a type definition (ex. make a field nullable or query param / payload param optional)**
+> This library is typed according to the definitions available in Minbody's [API docs](https://developers.mindbodyonline.com/PublicDocumentation/V6#endpoints).
+> Their API fails to establish consistent patterns and field type definitons.
+> An `ID` may be typed as a `string` or `number` and commonly swaps to a different type depending on the endpoint.
+> Schema definitions are sometimes incomplete or completely wrong.
+> Schema fields and endpoint paramters are only sometimes marked as nullable / optional.
+> **Please keep all this in mind when using this library.
+> We uses this library internally (heavily) and we will correct / expand type definitions as we run accross issues.
+> BUT, we do not interact with 100% of Mindbody's API.
+> Please submit an issue or PR if you find an issue or would like to expand a type definition (ex. make a field nullable or query param / payload param optional)**
 
 The package includes all endpoints added before or during the **September 2022 release**.
 
@@ -16,16 +24,14 @@ https://developers.mindbodyonline.com/Resources/ApiReleaseNotes
 
 ## Requirements
 
-Node 12.4 or higher.
+Bun 1.0.4 or higher.
 
 ## Installation
 
 Install the package with:
 
 ```sh
-npm install mindbody-api-v6 --save
-# or
-yarn add mindbody-api-v6
+bun add axios https://github.com/vinyll/mindbody-api
 ```
 
 ## Usage
@@ -40,17 +46,18 @@ data returned if no token is provided.
 https://developers.mindbodyonline.com/
 
 ```ts
-import { Config } from 'mindbody-api-v6';
+import { Config } from 'mindbody-api'
+Config.setup({ apiKey: '' })
+```
+or
 
-Config.setup({
-  apiKey: '',
-});
-// or
+```ts
+import { Config } from 'mindbody-api'
 Config.setup({
   apiKey: '',
   username: '',
   password: '',
-});
+})
 ```
 
 ### Example
@@ -58,7 +65,7 @@ Config.setup({
 Endpoints are logically separated based on the categories listed [here](https://developers.mindbodyonline.com/PublicDocumentation/V6#endpoints).
 
 ```ts
-import { Class, Client, Staff, Webhooks } from 'mindbody-api-v6';
+import { Class, Client, Staff, Webhooks } from 'mindbody-api'
 
 const classes = await Class.getClassSchedules({
   siteID: '123',
@@ -66,7 +73,7 @@ const classes = await Class.getClassSchedules({
     StartDate: '2022-01-01',
     LocationIds: [1, 2],
   },
-});
+})
 
 const newClient = await Client.addClient({
   siteID: '123',
@@ -82,14 +89,14 @@ const staff = await Staff.getStaff({
   // Automatically page through all results.
   // Only applicable for paginated endpoints
   autoPaginate: true,
-});
+})
 
 /**
  * Interact with Webhooks API
  *
  * https://developers.mindbodyonline.com/WebhooksDocumentation
  */
-await Webhooks.Subscriptions.createSubscription({ ... });
+await Webhooks.Subscriptions.createSubscription({ ... })
 ```
 
 ### Types
@@ -97,16 +104,14 @@ await Webhooks.Subscriptions.createSubscription({ ... });
 All model definitions are exported under `MBType`. A full list of models can be found [here](https://developers.mindbodyonline.com/PublicDocumentation/V6#shared-resources). Additional models were added for easy access to complex types not listed in Mindbody's documentation
 
 ```ts
-import type { MBType, MBWebhookType } from 'mindbody-api-v6';
+import type { MBType, MBWebhookType } from 'mindbody-api'
 
-const staff: MBType.Staff = ...;
-const client: MBType.Client = ...;
+const staff: MBType.Staff = ...
+const client: MBType.Client = ...
 // Webhook event types
-const newClient: MBWebhookType.ClientCreated = ...;
+const newClient: MBWebhookType.ClientCreated = ...
 ```
 
-## Roadmap
+### Todo
 
-| Version | Features                       |
-| ------- | ------------------------------ |
-| 1.0.0   | Test coverage, type refinement |
+- replace `axios()` with native `fetch()` to clear off dependencies.

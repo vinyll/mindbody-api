@@ -5,8 +5,8 @@ import type {
   Course,
   Location,
   Staff,
-} from '$mindbody/types';
-import type { Nullable } from '$types';
+} from './mindbody/types';
+import type { Nullable } from './types';
 
 export type ClassSchedules = {
   ClassSchedules: ClassSchedule[];

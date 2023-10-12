@@ -1,10 +1,6 @@
-import type {
-  WebhooksRequestsArgsPatch,
-  WebhooksRequestsArgsPost,
-} from '$http/types';
-import type { Kv } from '$http/types/Kv';
-
-import { BaseClient } from '$http/BaseClient';
+import {Kv} from "./types/Kv.ts"
+import {BaseClient} from "./BaseClient.ts"
+import {WebhooksRequestsArgsPatch, WebhooksRequestsArgsPost} from "./types/RequestArgs.ts"
 
 type Returnable = Kv | (string | number)[];
 

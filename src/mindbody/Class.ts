@@ -1,23 +1,17 @@
-import type {
-  ErrorCode,
-  PaginatedResponse,
-  QueryParams,
-  RequestArgsGet,
-  RequestArgsGetOptionalParams,
-  RequestArgsPost,
-} from '$http/types';
-import type {
-  Class,
-  ClassDescriptions,
-  Classes,
-  ClassSchedules,
-  Courses,
-  Semesters,
-  Visit,
-  WaitlistEntries,
-} from '$mindbody/types';
+import { ErrorCode } from '../http/types/ErrorCode.ts'
+import { PaginatedResponse } from '../http/types/PaginatedResponse.ts'
+import { QueryParams } from '../http/types/QueryParams.ts'
+import { RequestArgsGet, RequestArgsGetOptionalParams, RequestArgsPost } from '../http/types/RequestArgs.ts'
 
-import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
+import { Class, Classes } from './types/Class.ts'
+import { ClassDescriptions } from './types/ClassDescription.ts'
+import { ClassSchedules } from './types/ClassSchedule.ts'
+import { Courses } from './types/Course.ts'
+import { Visit } from './types/Visit.ts'
+
+import { MindbodyAPIClient } from '../http/MindbodyAPIClient.ts';
+import {WaitlistEntries} from "./types/WaitlistEntry.ts"
+import {Semesters} from "./types/Semester.ts"
 
 const MINDBODY = MindbodyAPIClient.get();
 

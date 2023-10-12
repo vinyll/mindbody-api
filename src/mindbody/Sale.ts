@@ -1,47 +1,37 @@
-import type {
-  PaginatedResponse,
-  QueryParams,
-  RequestArgsGet,
-  RequestArgsGetOptionalParams,
-  RequestArgsPost,
-} from '$http/types';
-import type {
-  CashPaymentItemMetadata,
-  CheckPaymentItemMetadata,
+import {MindbodyAPIClient} from "../http/MindbodyAPIClient.ts"
+import {RequestArgsGet, RequestArgsGetOptionalParams, RequestArgsPost} from "../http/types/RequestArgs.ts"
+import {QueryParams} from "../http/types/QueryParams.ts"
+import {PaginatedResponse} from "../http/types/PaginatedResponse.ts"
+import {Contracts} from "./types/Contract.ts"
+import {CustomPaymentMethod} from "./types/CustomPaymentMethod.ts"
+import {GiftCardBalance, GiftCards} from "./types/GiftCard.ts"
+import {Packages} from "./types/Package.ts"
+import {Products, ProductsInventory} from "./types/Product.ts"
+import {Sales} from "./types/Sale.ts"
+import {Services} from "./types/Service.ts"
+import {Transactions} from "./types/Transaction.ts"
+import {
+  PackageItemMetadata,
+  ProductItemMetadata,
+  ServiceItemMetadata,
+  TipItemMetadata
+} from "./types/ShoppingCartItemMetadata.ts"
+import {Resource} from "./types/Resource.ts"
+import {
+  CashPaymentItemMetadata, CheckPaymentItemMetadata,
   CompPaymentItemMetadata,
-  Contracts,
-  CreditCardPaymentItemMetadata,
-  CustomPaymentItemMetadata,
-  CustomPaymentMethod,
+  CreditCardPaymentItemMetadata, CustomPaymentItemMetadata,
   DebitPaymentItemMetadata,
   DirectDebitPaymentItemMetadata,
-  EncryptedTrackDataPaymentItemMetadata,
-  GiftCardBalance,
-  GiftCardPaymentItemMetadata,
-  GiftCards,
-  PackageItemMetadata,
+  EncryptedTrackDataPaymentItemMetadata, GiftCardPaymentItemMetadata,
   PackagePaymentItemMetadata,
-  Packages,
-  Product,
-  ProductItemMetadata,
-  Products,
-  ProductsInventory,
-  PurchaseAccountCredit,
-  PurchaseContract,
-  Resource,
-  ReturnSale,
-  Sales,
-  ServiceItemMetadata,
-  Services,
-  ShoppingCart,
   StoredCardPaymentItemMetadata,
-  TipItemMetadata,
   TipPaymentItemMetadata,
-  TrackDataPaymentItemMetadata,
-  Transactions,
-} from '$mindbody/types';
-
-import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
+  TrackDataPaymentItemMetadata
+} from "./types/PaymentItemMetadata.ts"
+import {ShoppingCart} from "./types/ShoppingCart.ts"
+import {PurchaseAccountCredit} from "./types/PurchaseAccountCredit.ts"
+import {PurchaseContract} from "./types/PurchaseContract.ts"
 
 const MINDBODY = MindbodyAPIClient.get();
 

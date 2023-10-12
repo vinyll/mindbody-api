@@ -1,6 +1,5 @@
-import type { Metrics } from '$webhooks/types';
-
-import { MindbodyWebhooksClient } from '$http/MindbodyWebhooksClient';
+import {MindbodyWebhooksClient} from "../http/MindbodyWebhooksClient.ts"
+import {Metrics} from "./types/Metrics.ts"
 
 const MINDBODY = MindbodyWebhooksClient.get();
 

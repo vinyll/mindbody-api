@@ -1,18 +1,20 @@
-import type { AxiosInstance } from 'axios';
-import type { ErrorResponse, Headers, TokenResponse } from '$http/types';
-import type { WebhookErrorResponse } from '$webhooks/types/WebhookErrorResponse';
+import { Axios, AxiosError, AxiosResponse } from "axios"
+import axios from "axios"
+import {ErrorResponse} from "./types/ErrorResponse.ts"
+import {WebhookErrorResponse} from "../webhooks/types/WebhookErrorResponse.ts"
+import MindbodyError from "./MindbodyError.ts"
+import Config from "../Config.ts"
+import { Headers } from './types/Headers.ts'
+import { TokenResponse } from "./types/TokenResponse.ts"
+import * as TokenCache from './TokenCache.ts'
 
-import axios, { AxiosError } from 'axios';
-import Config from '$Config';
-import MindbodyError from '$http/MindbodyError';
-import * as TokenCache from '$http/TokenCache';
 
 const API_BASE_URL = 'https://api.mindbodyonline.com/public/v6';
 const WEBHOOKS_BASE_URL = 'https://mb-api.mindbodyonline.com/push/api/v1';
 const TWENTY_FOUR_HOURS = 3600 * 1000 * 24;
 
 export class BaseClient {
-  protected client: AxiosInstance;
+  protected client: Axios;
 
   protected constructor(clientType: 'api-client' | 'webhooks-client') {
     this.client = axios.create({
@@ -45,7 +47,7 @@ export class BaseClient {
     );
   }
 
-  protected async request(siteID: string): Promise<[AxiosInstance, Headers]> {
+  protected async request(siteID: string): Promise<[Axios, Headers]> {
     const headers = Config.isFullCredentialsProvided()
       ? await this.authHeaders(siteID)
       : this.basicHeaders(siteID);
@@ -53,7 +55,7 @@ export class BaseClient {
     return [this.client, headers];
   }
 
-  protected webhookRequest(): [AxiosInstance, Headers] {
+  protected webhookRequest(): [Axios, Headers] {
     return [this.client, this.basicHeaders()];
   }
 
@@ -79,7 +81,7 @@ export class BaseClient {
   }
 
   private async getStaffToken(siteID: string): Promise<string> {
-    const cacheKey: TokenCache.CacheKey = `site_id:${siteID}`;
+    const cacheKey: TokenCache.CacheKey = `site_id:./{siteID}`;
     const cachedToken = TokenCache.get(cacheKey);
 
     if (cachedToken != null) {

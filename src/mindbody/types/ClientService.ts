@@ -1,4 +1,4 @@
-import type { Program } from '$mindbody/types';
+import type { Program } from './mindbody/types';
 
 export type ClientServices = {
   ClientServices: ClientService[];

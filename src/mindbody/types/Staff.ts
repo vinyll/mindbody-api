@@ -2,8 +2,8 @@ import type {
   Appointment,
   Availability,
   Unavailability,
-} from '$mindbody/types';
-import type { Nullable } from '$types';
+} from './mindbody/types';
+import type { Nullable } from './types';
 
 export type StaffMembers = {
   StaffMembers: Staff[];

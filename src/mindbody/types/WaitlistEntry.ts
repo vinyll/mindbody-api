@@ -1,4 +1,4 @@
-import type { ClassSchedule, Client } from '$mindbody/types';
+import type { ClassSchedule, Client } from './mindbody/types';
 
 export type WaitlistEntries = {
   WaitlistEntries: WaitlistEntry[];

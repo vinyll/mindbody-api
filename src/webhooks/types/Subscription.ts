@@ -1,5 +1,5 @@
-import type { Nullable } from '$types';
-import type { SubscriptionStatus } from '$webhooks/types/SubscriptionStatus';
+import type { Nullable } from './types';
+import type { SubscriptionStatus } from './webhooks/types/SubscriptionStatus';
 
 export type Subscriptions = {
   items: Subscription[];

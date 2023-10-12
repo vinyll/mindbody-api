@@ -4,8 +4,8 @@ import type {
   Location,
   Staff,
   Visit,
-} from '$mindbody/types';
-import type { Nullable } from '$types';
+} from './mindbody/types';
+import type { Nullable } from './types';
 
 export type Classes = {
   Classes: Class[];

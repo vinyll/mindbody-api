@@ -1,4 +1,4 @@
-import type { Kv } from '$http/types/Kv';
+import type { Kv } from './http/types/Kv';
 
 export type WebhookEventBase<TEventData extends Kv> = {
   messageId: string;

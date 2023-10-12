@@ -1,6 +1,6 @@
-import type { Nullable } from '$types';
+import type { Nullable } from './types';
 
-export type CacheKey = `site_id:${string}`;
+export type CacheKey = `site_id:./{string}`;
 type CacheValue =
   | {
       token: string;

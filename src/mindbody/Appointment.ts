@@ -1,23 +1,20 @@
-import type {
-  PaginatedResponse,
-  QueryParams,
+import {MindbodyAPIClient} from "../http/MindbodyAPIClient.ts"
+import {QueryParams} from "../http/types/QueryParams.ts"
+import {
   RequestArgsDelete,
   RequestArgsGet,
   RequestArgsGetOptionalParams,
-  RequestArgsPost,
-} from '$http/types';
-import type {
-  AddOns,
-  Appointment,
-  AppointmentOptions,
-  Appointments,
-  Availabilities,
-  Staff,
-} from '$mindbody/types';
+  RequestArgsPost
+} from "../http/types/RequestArgs.ts"
+import {PaginatedResponse} from "../http/types/PaginatedResponse.ts"
+import {AddOns} from "./types/AddOn.ts"
+import {AppointmentOptions} from "./types/AppointmentOption.ts"
+import {Availabilities} from "./types/Availability.ts"
+import {Staff} from "./types/Staff.ts"
+import {Appointment, Appointments} from "./types/Appointment.ts"
 
-import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyAPIClient.get();
+const mindbody = MindbodyAPIClient.get();
 
 // ========================
 // GET /appointment/{endpoint}
@@ -47,7 +44,7 @@ export type GetActiveSessionTimesQueryParams = QueryParams<{
 async function getActiveSessionTimes(
   args: RequestArgsGetOptionalParams<GetActiveSessionTimesQueryParams>,
 ): Promise<PaginatedResponse<{ ActiveSessionTimes: string[] }>> {
-  return await MINDBODY.getPaginated('/appointment/activesessiontimes', {
+  return await mindbody.getPaginated('/appointment/activesessiontimes', {
     ...args,
     objectIndexKey: 'ActiveSessionTimes',
   });
@@ -65,7 +62,7 @@ export type GetAppointmentAddOnsQueryParams = QueryParams<{
 async function getAppointmentAddOns(
   args: RequestArgsGetOptionalParams<GetAppointmentAddOnsQueryParams>,
 ): Promise<PaginatedResponse<AddOns>> {
-  return await MINDBODY.getPaginated('/appointment/addons', {
+  return await mindbody.getPaginated('/appointment/addons', {
     ...args,
     objectIndexKey: 'AddOnds',
   });
@@ -90,7 +87,7 @@ export type GetAppointmentAvailableDatesQueryParams = QueryParams<{
 async function getAppointmentAvailableDates(
   args: RequestArgsGet<GetAppointmentAvailableDatesQueryParams>,
 ): Promise<{ AvailableDates: string[] }> {
-  return await MINDBODY.get('/appointment/availabledates', args);
+  return await mindbody.get('/appointment/availabledates', args);
 }
 
 /**
@@ -99,7 +96,7 @@ async function getAppointmentAvailableDates(
 async function getAppointmentOptions(
   args: RequestArgsGetOptionalParams<never>,
 ): Promise<AppointmentOptions> {
-  return await MINDBODY.get('/appointment/appointmentoptions', args);
+  return await mindbody.get('/appointment/appointmentoptions', args);
 }
 
 export type GetBookableItemsQueryParams = QueryParams<{
@@ -122,7 +119,7 @@ export type GetBookableItemsQueryParams = QueryParams<{
 async function getBookableItems(
   args: RequestArgsGet<GetBookableItemsQueryParams>,
 ): Promise<PaginatedResponse<Availabilities>> {
-  return await MINDBODY.getPaginated('/appointment/bookableitems', {
+  return await mindbody.getPaginated('/appointment/bookableitems', {
     ...args,
     objectIndexKey: 'Availabilities',
   });
@@ -146,7 +143,7 @@ export type GetScheduleItemsQueryParams = QueryParams<{
 async function getScheduleItems(
   args: RequestArgsGetOptionalParams<GetScheduleItemsQueryParams>,
 ): Promise<PaginatedResponse<{ StaffMembers: Staff[] }>> {
-  return await MINDBODY.getPaginated('/appointment/scheduleitems', {
+  return await mindbody.getPaginated('/appointment/scheduleitems', {
     ...args,
     objectIndexKey: 'StaffMembers',
   });
@@ -169,7 +166,7 @@ export type GetStaffAppointmentsQueryParams = QueryParams<{
 async function getStaffAppointments(
   args: RequestArgsGetOptionalParams<GetStaffAppointmentsQueryParams>,
 ): Promise<PaginatedResponse<Appointments>> {
-  return await MINDBODY.getPaginated('/appointment/staffappointments', {
+  return await mindbody.getPaginated('/appointment/staffappointments', {
     ...args,
     objectIndexKey: 'Appointments',
   });
@@ -209,7 +206,7 @@ export type AddAppointmentPayload = {
 async function addAppointment(
   args: RequestArgsPost<AddAppointmentPayload>,
 ): Promise<{ Appointment: Appointment }> {
-  return await MINDBODY.post('/appointment/addappointment', args);
+  return await mindbody.post('/appointment/addappointment', args);
 }
 
 export type AddAppointmentAddOnPayload = {
@@ -233,7 +230,7 @@ async function addAppointmentAddOn(
   AppointmentId: number;
   AddOnAppointmentId: number;
 }> {
-  return await MINDBODY.post('/appointment/addappointmentaddon', args);
+  return await mindbody.post('/appointment/addappointmentaddon', args);
 }
 
 export type UpdateAppointmentPayload = {
@@ -251,6 +248,8 @@ export type UpdateAppointmentPayload = {
   Test?: boolean;
 };
 
+
+
 /**
  * To update the information for a specific appointment, you must have a staff user
  * token with the proper permissions. Note that you can only update the appointment’s
@@ -261,7 +260,7 @@ export type UpdateAppointmentPayload = {
 async function updateAppointment(
   args: RequestArgsPost<UpdateAppointmentPayload>,
 ): Promise<{ Appointment: Appointment }> {
-  return await MINDBODY.post('/appointment/updateappointment', args);
+  return await mindbody.post('/appointment/updateappointment', args);
 }
 
 export type AddAvailabilitiesPayload = {
@@ -293,7 +292,7 @@ export type AddAvailabilitiesPayload = {
 async function addAvailabilities(
   args: RequestArgsPost<AddAvailabilitiesPayload>,
 ): Promise<{ StaffMembers: Staff[] }> {
-  return await MINDBODY.post('/appointment/availabilities', args);
+  return await mindbody.post('/appointment/availabilities', args);
 }
 
 // ========================
@@ -328,7 +327,7 @@ export type UpdateAvailabilitiesPayload = {
 async function updateAvailabilities(
   args: RequestArgsPost<UpdateAvailabilitiesPayload>,
 ): Promise<{ StaffMembers: Staff[] }> {
-  return await MINDBODY.put('/appointment/availabilities', args);
+  return await mindbody.put('/appointment/availabilities', args);
 }
 
 // ========================
@@ -349,7 +348,7 @@ export type DeleteAppointmentAddOnQueryParams = {
 async function deleteAppointmentAddOn(
   args: RequestArgsDelete<DeleteAppointmentAddOnQueryParams>,
 ): Promise<void> {
-  await MINDBODY.delete('/appointment/deleteappointmentaddon', args);
+  await mindbody.delete('/appointment/deleteappointmentaddon', args);
 }
 
 export type DeleteAvailabilityQueryParams = {
@@ -367,7 +366,7 @@ export type DeleteAvailabilityQueryParams = {
 async function deleteAvailability(
   args: RequestArgsDelete<DeleteAvailabilityQueryParams>,
 ): Promise<void> {
-  await MINDBODY.delete('/appointment/availability', args);
+  await mindbody.delete('/appointment/availability', args);
 }
 
 export type RemoveFromAppointmentWaitlistQueryParams = {
@@ -384,7 +383,7 @@ export type RemoveFromAppointmentWaitlistQueryParams = {
 async function removeFromAppointmentWaitlist(
   args: RequestArgsDelete<RemoveFromAppointmentWaitlistQueryParams>,
 ): Promise<void> {
-  await MINDBODY.delete('/appointment/removefromappointmentwaitlist', args);
+  await mindbody.delete('/appointment/removefromappointmentwaitlist', args);
 }
 
 export default {

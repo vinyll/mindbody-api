@@ -1,5 +1,5 @@
-import type { SubCategory } from '$mindbody/types';
-import type { Nullable } from '$types';
+import type { SubCategory } from './mindbody/types';
+import type { Nullable } from './types';
 
 export type Categories = {
   Categories: Category[];

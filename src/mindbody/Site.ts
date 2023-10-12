@@ -1,30 +1,21 @@
-import type {
-  PaginatedResponse,
-  QueryParams,
-  RequestArgsGet,
-  RequestArgsGetOptionalParams,
-  RequestArgsPost,
-} from '$http/types';
-import type {
-  ActivationCode,
-  Categories,
-  GenderOptions,
-  Locations,
-  Memberships,
-  MobileProviders,
-  PaymentTypes,
-  Programs,
-  PromoCode,
-  PromoCodes,
-  ProspectStages,
-  Relationships,
-  Resources,
-  SessionTypes,
-  Sites,
-} from '$mindbody/types';
-import type { MarkRequired } from 'ts-essentials';
-
-import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
+import {MindbodyAPIClient} from "../http/MindbodyAPIClient.ts"
+import {RequestArgsGet, RequestArgsGetOptionalParams} from "../http/types/RequestArgs.ts"
+import {ActivationCode} from "./types/ActivationCode.ts"
+import {PaginatedResponse} from "../http/types/PaginatedResponse.ts"
+import {GenderOptions} from "./types/Gender.ts"
+import {Locations} from "./types/Location.ts"
+import {QueryParams} from "../http/types/QueryParams.ts"
+import {Memberships} from "./types/Membership.ts"
+import {Programs} from "./types/Program.ts"
+import {PromoCodes} from "./types/PromoCode.ts"
+import {Resources} from "./types/Resource.ts"
+import {SessionTypes} from "./types/SessionType.ts"
+import {Sites} from "./types/Site.ts"
+import {Categories} from "./types/Category.ts"
+import {PaymentTypes} from "./types/PaymentType.ts"
+import {Relationships} from "./types/Relationship.ts"
+import {MobileProviders} from "./types/MobileProvider.ts"
+import {ProspectStages} from "./types/ProspectStage.ts"
 
 const MINDBODY = MindbodyAPIClient.get();
 

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { AxiosInstance } from 'axios';
-import type { Returnable } from '$http/MindbodyAPIClient';
-import type { PaginatedResponse, Headers } from '$http/types';
+import type { Returnable } from './http/MindbodyAPIClient';
+import type { PaginatedResponse, Headers } from './http/types';
 
 import pLimit from 'p-limit';
 

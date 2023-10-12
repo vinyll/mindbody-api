@@ -1,5 +1,5 @@
-import type { Program, SessionType } from '$mindbody/types';
-import type { Nullable } from '$types';
+import type { Program, SessionType } from './mindbody/types';
+import type { Nullable } from './types';
 
 export type ClassDescriptions = {
   ClassDescriptions: ClassDescription[];

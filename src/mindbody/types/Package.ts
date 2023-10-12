@@ -1,4 +1,4 @@
-import type { Product, Service } from '$mindbody/types';
+import type { Product, Service } from './mindbody/types';
 
 export type Packages = {
   Packages: Package[];

@@ -1,5 +1,5 @@
-import type { QueryParams } from '$http/types';
-import type { Kv } from '$http/types/Kv';
+import type { QueryParams } from './http/types';
+import type { Kv } from './http/types/Kv';
 
 export type RequestArgsGet<TParam extends Kv> = {
   siteID: string;

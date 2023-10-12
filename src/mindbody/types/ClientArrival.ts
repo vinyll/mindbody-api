@@ -1,4 +1,4 @@
-import type { Nullable } from '$types';
+import type { Nullable } from './types';
 
 export type ClientArrival = {
   ArrivalProgramID: number;

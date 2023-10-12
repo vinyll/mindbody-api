@@ -1,5 +1,5 @@
-import type { ErrorCode, ErrorResponse } from '$http/types';
-import type { WebhookErrorCode, WebhookErrorResponse } from '$webhooks/types';
+import type { ErrorCode, ErrorResponse } from './http/types';
+import type { WebhookErrorCode, WebhookErrorResponse } from './webhooks/types';
 
 export default class MindbodyError extends Error {
   public code: ErrorCode | WebhookErrorCode[];

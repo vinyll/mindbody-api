@@ -5,7 +5,7 @@ import type {
   Location,
   Staff,
   Visit,
-} from '$mindbody/types';
+} from './mindbody/types';
 
 export type AddClientToEnrollment = {
   Classes: {

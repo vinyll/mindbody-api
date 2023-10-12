@@ -1,5 +1,5 @@
-import type { Nullable } from '$types';
-import type { WebhookEventBase } from '$webhooks/types';
+import type { Nullable } from './types';
+import type { WebhookEventBase } from './webhooks/types';
 
 export type ClassUpdated = WebhookEventBase<{
   siteId: number;

@@ -1,5 +1,5 @@
-import Metrics from '$webhooks/Metrics';
-import Subscriptions from '$webhooks/Subscriptions';
+import Metrics from "./Metrics.ts"
+import Subscriptions from "./Subscriptions.ts"
 
 export default {
   Metrics,

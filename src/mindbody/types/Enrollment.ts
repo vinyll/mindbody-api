@@ -5,7 +5,7 @@ import type {
   Course,
   Location,
   Staff,
-} from '$mindbody/types';
+} from './mindbody/types';
 
 export type Enrollments = {
   Enrollments: Enrollment[];
