@@ -2,7 +2,7 @@
 
 _Type safe_ library for interacting with Mindbody's Public API (v6) and Webhooks
 
-![Latest version of mindbody-api is 0.3.0](https://img.shields.io/github/package-json/v/vinyll/mindbody-api?color=blue&style=for-the-badge)
+![Latest version of mindbody-api is 0.3.1](https://img.shields.io/github/package-json/v/vinyll/mindbody-api?color=blue&style=for-the-badge)
 
 <br />
 
@@ -115,5 +115,5 @@ const newClient: MBWebhookType.ClientCreated = ...
 
 ### Todo
 
-- Default `SiteId` in the global config
-- Replace `axios()` with native `fetch()` to clear off dependencies.
+- [x] Default `SiteId` in the global config
+- [] Replace `axios()` with native `fetch()` to clear off dependencies.
