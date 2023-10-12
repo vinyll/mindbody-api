@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 export type MindbodyConfig = {
-  apiKey?: string;
-  username?: string;
-  password?: string;
-};
+  apiKey?: string
+  username?: string
+  password?: string
+  siteId?: number
+}
 
-let CONFIG = {} as MindbodyConfig;
-let FULL_CREDENTIALS_PROVIDED = false;
+let CONFIG = {} as MindbodyConfig
+let FULL_CREDENTIALS_PROVIDED = false
 
 /**
  * Mindbody requires an API key to interact with endpoints and may additionally
@@ -19,22 +20,22 @@ let FULL_CREDENTIALS_PROVIDED = false;
  *
  * @example
  * ```
- * import { Config } from '@splitpass/mindbody-api';
+ * import { Config } from '@splitpass/mindbody-api'
  *
  * // Limited to interacting with endpoints that don't require a staff token
- * Config.setup({ apiKey: 'my-api-key' });
+ * Config.setup({ apiKey: 'my-api-key' })
  *
  * // Full access to API data that a location has granted to your user
- * Config.setup({ apiKey: 'api-key', username: 'username', password: 'password' });
+ * Config.setup({ apiKey: 'api-key', username: 'username', password: 'password' })
  * ```
  */
 export default class Config {
   private constructor() {}
 
   public static setup(config: MindbodyConfig): void {
-    CONFIG = config;
+    CONFIG = config
     if (config.username != null && config.password != null) {
-      FULL_CREDENTIALS_PROVIDED = true;
+      FULL_CREDENTIALS_PROVIDED = true
     }
   }
 
@@ -42,10 +43,14 @@ export default class Config {
     if (CONFIG.apiKey == null) {
       throw Error(
         'Config.setup({ apiKey: <key> }) requires at least an API key to interact with endpoints',
-      );
+      )
     }
 
-    return CONFIG.apiKey;
+    return CONFIG.apiKey
+  }
+
+  public static getDefaultSiteId(): number {
+    return CONFIG.siteId
   }
 
   public static get(): MindbodyConfig {
@@ -56,13 +61,12 @@ export default class Config {
     ) {
       throw Error(
         'Config.setup({...}) requires all fields to be provided to generate a staff token',
-      );
+      )
     }
-
-    return CONFIG;
+    return CONFIG
   }
 
   public static isFullCredentialsProvided(): boolean {
-    return FULL_CREDENTIALS_PROVIDED;
+    return FULL_CREDENTIALS_PROVIDED
   }
 }

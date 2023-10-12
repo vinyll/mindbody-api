@@ -59,15 +59,14 @@ export class BaseClient {
     return [this.client, this.basicHeaders()];
   }
 
-  protected basicHeaders(siteID?: string): Headers {
+  protected basicHeaders(siteID?: number): Headers {
     const headers = {
       'Content-Type': 'application/json',
       'Api-Key': Config.getApiKey(),
-    } as Headers;
+    } as Headers
 
-    if (siteID != null) {
-      headers.SiteId = siteID;
-    }
+    const siteId = siteID ?? Config.getDefaultSiteId()
+    if(siteId) headers['siteId'] = siteId
 
     return headers;
   }
