@@ -1,8 +1,9 @@
-<div>
-    <h1>Mindbody API</h1>
-    <p><b>Type safe library for interacting with Mindbody's Public API (v6) and Webhooks</b></p>
-    <img src="https://img.shields.io/github/package-json/v/vinyll/mindbody-api?color=blue&style=for-the-badge" alt="Latest version of mindbody-api is 0.3.0">
-</div>
+# Mindbody API
+
+_Type safe_ library for interacting with Mindbody's Public API (v6) and Webhooks
+
+![Latest version of mindbody-api is 0.3.0](https://img.shields.io/github/package-json/v/vinyll/mindbody-api?color=blue&style=for-the-badge)
+
 <br />
 
 > :warning: **Read before installing**\
@@ -11,14 +12,14 @@
 > An `ID` may be typed as a `string` or `number` and commonly swaps to a different type depending on the endpoint.
 > Schema definitions are sometimes incomplete or completely wrong.
 > Schema fields and endpoint paramters are only sometimes marked as nullable / optional.
-> **Please keep all this in mind when using this library.
-> We uses this library internally (heavily) and we will correct / expand type definitions as we run accross issues.
+> **Please keep all this in mind (and body) when using this library.
+> We uses this library internally in production (heavily) and we will correct / expand type definitions as we run accross issues.
 > BUT, we do not interact with 100% of Mindbody's API.
 > Please submit an issue or PR if you find an issue or would like to expand a type definition (ex. make a field nullable or query param / payload param optional)**
 
-The package includes all endpoints added before or during the **September 2022 release**.
+The package includes all endpoints added before or during the **September 2022 release** and we are running MindBody v6 late 2023/early 2024.
 
-PRs are welcome if we are behind the release schedule and you would like to use a new endpoint that was added
+PRs are welcome in any case.
 
 https://developers.mindbodyonline.com/Resources/ApiReleaseNotes
 
@@ -114,4 +115,5 @@ const newClient: MBWebhookType.ClientCreated = ...
 
 ### Todo
 
-- replace `axios()` with native `fetch()` to clear off dependencies.
+- Default `SiteId` in the global config
+- Replace `axios()` with native `fetch()` to clear off dependencies.
